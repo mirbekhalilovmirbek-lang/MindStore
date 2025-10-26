@@ -1,0 +1,93 @@
+.admin-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.admin-section {
+  padding: 2rem;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.admin-header h2 {
+  margin: 0;
+}
+
+.users-table, .courses-table {
+  overflow-x: auto;
+}
+
+.users-table table, .courses-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th, .courses-table th,
+.users-table td, .courses-table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.users-table th, .courses-table th {
+  background: rgba(106, 17, 203, 0.1);
+  font-weight: 600;
+}
+
+.role-badge {
+  padding: 0.3rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.role-user {
+  background: rgba(52, 152, 219, 0.2);
+  color: #3498db;
+}
+
+.role-admin {
+  background: rgba(231, 76, 60, 0.2);
+  color: #e74c3c;
+}
+
+.btn-danger {
+  background: #ff6b6b;
+  border: none;
+  color: white;
+}
+
+.btn-danger:hover {
+  background: #ff5252;
+}
+
+.loading {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .admin-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .users-table, .courses-table {
+    font-size: 0.9rem;
+  }
+  
+  .users-table th, .courses-table th,
+  .users-table td, .courses-table td {
+    padding: 0.5rem;
+  }
+}

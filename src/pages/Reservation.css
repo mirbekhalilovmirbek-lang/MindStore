@@ -1,0 +1,124 @@
+.reservation {
+  width: 100%;
+}
+
+.reservation-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.course-info {
+  padding: 2rem;
+}
+
+.course-info h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.course-info p {
+  color: #a0a0c0;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.course-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.meta-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.reservation-form {
+  padding: 2rem;
+}
+
+.reservation-form h2 {
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.3);
+}
+
+.reserve-btn {
+  width: 100%;
+  padding: 1.2rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
+}
+
+.reservation-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+.info-card {
+  padding: 2rem;
+}
+
+.info-card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  color: #6a11cb;
+}
+
+.info-card ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.info-card li {
+  padding: 0.5rem 0;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.info-card li::before {
+  content: "✓";
+  color: #6a11cb;
+  position: absolute;
+  left: 0;
+}
+
+@media (max-width: 768px) {
+  .reservation-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .reservation-info {
+    grid-template-columns: 1fr;
+  }
+}

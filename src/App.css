@@ -1,0 +1,248 @@
+/* Modern styles for MindStore with glass morphism and unique design */
+:root {
+  --primary-color: #6a11cb;
+  --secondary-color: #2575fc;
+  --accent-color: #ff6b6b;
+  --text-light: #ffffff;
+  --text-dark: #333333;
+  --border-radius: 16px;
+  --box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+  --backdrop-filter: blur(12px);
+  --primary-gradient: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --secondary-gradient: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  --accent-gradient: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+  --neon-shadow: 0 0 10px rgba(106, 17, 203, 0.3), 0 0 20px rgba(37, 117, 252, 0.2);
+  --neon-glow: 0 0 5px rgba(106, 17, 203, 0.5), 0 0 15px rgba(106, 17, 203, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  background-attachment: fixed;
+  perspective: 1000px;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Modern gradient buttons with hover effects and unusual animations */
+.btn {
+  background: var(--primary-gradient);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3);
+  border: none;
+  transform: translateZ(0);
+  letter-spacing: 0.5px;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: 0.5s;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--neon-shadow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  border-radius: var(--border-radius);
+}
+
+/* Removed hover effects */
+.btn:hover::after {
+  /* left: 100%; */
+}
+
+.btn:hover {
+  /* transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(106, 17, 203, 0.4); */
+}
+
+.btn:hover::before {
+  /* opacity: 1; */
+}
+
+.btn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.btn-secondary {
+  background: var(--secondary-gradient);
+  box-shadow: 0 4px 15px rgba(37, 117, 252, 0.3);
+}
+
+.btn-secondary:hover {
+  /* box-shadow: 0 8px 20px rgba(37, 117, 252, 0.4); */
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  box-shadow: none;
+}
+
+.btn-outline:hover {
+  /* background: var(--primary-gradient);
+  color: white;
+  box-shadow: 0 4px 15px rgba(106, 17, 203, 0.3); */
+}
+
+/* Modern section styling with gradient effects and unusual animations */
+.section {
+  margin: 3rem 0;
+  position: relative;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(106, 17, 203, 0.05) 0%, transparent 70%);
+  z-index: -1;
+  border-radius: calc(var(--border-radius) * 2);
+  animation: pulseGlow 4s infinite alternate;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  transform: translateZ(20px);
+  letter-spacing: 1px;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 4px;
+  background: var(--primary-gradient);
+  border-radius: 2px;
+  margin: 0.5rem auto;
+  box-shadow: var(--neon-shadow);
+}
+
+/* Modern form styling with glass morphism effects and unusual animations */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-color);
+  transform: translateZ(10px);
+  transition: all 0.3s ease;
+}
+
+.form-input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-color);
+  backdrop-filter: var(--backdrop-filter);
+  -webkit-backdrop-filter: var(--backdrop-filter);
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+  position: relative;
+  transform: translateZ(0);
+}
+
+.form-input::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--neon-glow);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.form-input:focus::after {
+  opacity: 1;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.3), inset 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: var(--input-bg);
+  transform: translateZ(5px);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  main {
+    padding: 1rem;
+  }
+  
+  .grid-cols-2, .grid-cols-3, .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

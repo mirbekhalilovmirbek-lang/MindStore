@@ -1,0 +1,171 @@
+.profile-container {
+  min-height: 100vh;
+  padding: 2rem;
+  background: transparent !important; /* арттагы чоң фонду алып салдык */
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Профиль картасы — айнек эффекти менен */
+.profile-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.05); /* жарым тунук айнек фон */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15); /* билинип турган рамка */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+/* Header дагы айнек эффекти менен */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.profile-header h1 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.profile-content {
+  padding: 1.5rem;
+}
+
+.user-info h2,
+.registered-users h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.info-item {
+  margin-bottom: 1rem;
+}
+
+.info-item label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: var(--text-color);
+  font-size: 0.9rem;
+  opacity: 0.8;
+  transition: color 0.3s ease;
+}
+
+.info-item p {
+  margin: 0;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-color);
+  transition: background 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.registered-users {
+  margin-top: 2rem;
+}
+
+/* Колдонуучулар тизмеси айнек эффекти менен */
+.users-list {
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: border-color 0.3s ease;
+}
+
+.users-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.users-list li {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  transition: border-color 0.3s ease;
+}
+
+.users-list li:last-child {
+  border-bottom: none;
+}
+
+.user-name {
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.user-email {
+  margin: 0 0 0.25rem 0;
+  color: var(--text-color);
+  opacity: 0.8;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+}
+
+.user-date {
+  margin: 0;
+  color: var(--text-color);
+  opacity: 0.6;
+  font-size: 0.8rem;
+  transition: color 0.3s ease;
+}
+
+/* Түймөлөр */
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--button-primary-hover);
+  transform: translateY(-2px);
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  transform: translateY(-2px);
+}

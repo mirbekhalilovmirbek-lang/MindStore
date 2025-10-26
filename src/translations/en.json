@@ -1,0 +1,417 @@
+{
+  "header": {
+    "logo": "MindStore",
+    "home": "Home",
+    "courses": "Courses",
+    "books": "Books",
+    "lectures": "Lectures",
+    "podcasts": "Podcasts",
+    "installment": "Installment Plan",
+    "reserve": "Reserve",
+    "locations": "Locations",
+    "cart": "Cart",
+    "profile": "Profile",
+    "login": "Login",
+    "register": "Register",
+    "itemsInCart": "{{count}} items"
+  },
+  "favorites": {
+    "title": "Favorites",
+    "empty": "Your favorites list is empty",
+    "startAdding": "Start adding items to your favorites!",
+    "browse": "Browse Products",
+    "viewDetails": "View Details",
+    "remove": "Remove"
+  },
+  "home": {
+    "title": "Expand Your Mind, Expand Your World",
+    "subtitle": "Discover premium digital learning products from industry experts",
+    "exploreCourses": "Explore Courses",
+    "installmentPlans": "Installment Plans",
+    "whyChoose": "Why Choose MindStore?",
+    "expertInstructors": "Expert Instructors",
+    "expertInstructorsDesc": "Learn from industry leaders and professionals with real-world experience",
+    "flexiblePayments": "Flexible Payments",
+    "flexiblePaymentsDesc": "Pay in installments with our easy financing options",
+    "globalAccess": "Global Access",
+    "globalAccessDesc": "Learn from anywhere with lifetime access to materials",
+    "browseCategories": "Browse Categories",
+    "itSoftware": "IT & Software",
+    "itSoftwareDesc": "Programming, cybersecurity, cloud computing and more",
+    "design": "Design",
+    "designDesc": "UI/UX, graphic design, animation and creative skills",
+    "languages": "Languages",
+    "languagesDesc": "Learn new languages with immersive techniques",
+    "readyToLearn": "Ready to Start Learning?",
+    "joinStudents": "Join thousands of students who have transformed their careers with MindStore",
+    "getStarted": "Get Started Today",
+    "month": "month"
+  },
+  "books": {
+    "title": "Digital Books & E-books",
+    "infoText": "All our digital books come with lifetime access and can be downloaded in multiple formats. Start learning today and expand your knowledge!"
+  },
+  "courses": {
+    "title": "Our Courses",
+    "searchPlaceholder": "Search courses...",
+    "all": "All",
+    "it": "IT",
+    "design": "Design",
+    "languages": "Languages",
+    "business": "Business",
+    "noCourses": "No courses found",
+    "tryAdjusting": "Try adjusting your search or filter criteria",
+    "by": "by",
+    "students": "students",
+    "preview": "Preview"
+  },
+  "cart": {
+    "title": "Your Shopping Cart",
+    "empty": "Your cart is empty",
+    "startAdding": "Start adding some amazing learning products to your cart!",
+    "browseCourses": "Browse Courses",
+    "orderSummary": "Order Summary",
+    "subtotal": "Subtotal",
+    "tax": "Tax (8%)",
+    "total": "Total",
+    "proceedCheckout": "Proceed to Checkout",
+    "payInstallments": "Pay in installments",
+    "checkout": "Checkout",
+    "name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "address": "Delivery Address",
+    "cancel": "Cancel",
+    "processing": "Processing...",
+    "placeOrder": "Place Order",
+    "orderPlaced": "Order Placed Successfully!",
+    "orderPlacedMessage": "Thank you for your order. You will receive a confirmation email shortly.",
+    "continueShopping": "Continue Shopping",
+    "checkoutError": "An error occurred during checkout. Please try again.",
+    "notificationSent": "Order notification sent to Telegram bot successfully.",
+    "notificationFailed": "Failed to send order notification to Telegram bot.",
+    "notificationWarning": "Order placed but notification delivery status is uncertain.",
+    "notificationServerError": "Unable to connect to notification service. Order will still be processed."
+  },
+  "profile": {
+    "title": "My Profile",
+    "profile": "Profile",
+    "orders": "My Orders",
+    "wishlist": "Wishlist",
+    "settings": "Settings",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "bio": "Bio",
+    "updateProfile": "Update Profile",
+    "changePhoto": "Change Photo",
+    "orderHistory": "Order History",
+    "order": "Order",
+    "date": "Date",
+    "items": "items",
+    "status": "Status",
+    "delivered": "Delivered",
+    "viewDetails": "View Details",
+    "myWishlist": "My Wishlist",
+    "remove": "Remove",
+    "accountSettings": "Account Settings",
+    "notifications": "Notifications",
+    "emailNotifications": "Email notifications",
+    "smsNotifications": "SMS notifications",
+    "privacy": "Privacy",
+    "makePublic": "Make profile public",
+    "security": "Security",
+    "changePassword": "Change Password",
+    "enable2fa": "Enable Two-Factor Authentication",
+    "dangerZone": "Danger Zone",
+    "deleteAccount": "Delete Account",
+    "logout": "Logout",
+    "pleaseLogin": "Please log in to view your profile",
+    "registeredUsers": "Registered Users",
+    "role": "Role",
+    "memberSince": "Member Since",
+    "noUsersFound": "No registered users found"
+  },
+  "installment": {
+    "title": "Installment Plan",
+    "selectPlan": "Select Payment Plan",
+    "chooseOption": "Choose a flexible payment option that works for your budget",
+    "months": "Months",
+    "noInterest": "No interest",
+    "interest": "interest",
+    "monthlyPayment": "Monthly Payment",
+    "totalPayment": "Total Payment",
+    "planSummary": "Plan Summary",
+    "coursePrice": "Course Price",
+    "interestFee": "Interest",
+    "enroll": "Enroll with Installment Plan",
+    "benefits": "Benefits of Installment Plans",
+    "spreadCost": "Spread the cost over several months",
+    "noCreditImpact": "No impact on credit score",
+    "flexibleOptions": "Flexible payment options",
+    "startLearning": "Start learning immediately",
+    "cancelAnytime": "Cancel anytime",
+    "faq": "Frequently Asked Questions",
+    "howWork": "How do installment plans work?",
+    "howWorkDesc": "Our installment plans allow you to spread the cost of your purchase over several months with fixed monthly payments. You get immediate access to your course while paying over time.",
+    "interestFaq": "Is there interest on installment plans?",
+    "interestFaqDesc": "Some plans may include a small interest fee. We offer 3-month plans with no interest, while longer-term plans may include a nominal interest rate to cover processing costs.",
+    "changePlan": "Can I change my payment plan later?",
+    "changePlanDesc": "Yes, you can upgrade or downgrade your payment plan at any time through your account settings. Changes will be reflected in your next billing cycle.",
+    "missPayment": "What happens if I miss a payment?",
+    "missPaymentDesc": "We'll send you a reminder before your payment is due. If a payment is missed, we'll work with you to get back on track. Access to course materials will continue during this period."
+  },
+  "reservation": {
+    "title": "Course Reservation",
+    "description": "Reserve your spot in this upcoming course. You'll receive a confirmation email with details about the course start date and access information.",
+    "reserveSpot": "Reserve Your Spot",
+    "selectDate": "Select Date",
+    "chooseDate": "Choose a date",
+    "selectTime": "Select Time",
+    "chooseTime": "Choose a time",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "participants": "Number of Participants",
+    "person": "person",
+    "people": "people",
+    "confirm": "Confirm Reservation",
+    "whatsappConfirmation": "Your spot has been reserved! For any questions or changes, please contact us on WhatsApp at 0703 15 33 55",
+    "benefits": "Reservation Benefits",
+    "guaranteedSpot": "Guaranteed spot in the course",
+    "earlyAccess": "Early access to course materials",
+    "prioritySupport": "Priority support during the course",
+    "specialDiscounts": "Special discounts on future courses",
+    "exclusiveAccess": "Access to exclusive community forums",
+    "importantInfo": "Important Information",
+    "nonRefundable": "Reservations are non-refundable but transferable",
+    "paymentDue": "Payment is due 7 days before the course starts",
+    "reminder": "You'll receive a reminder 3 days before the course",
+    "materials": "Course materials will be sent 24 hours before start",
+    "lateArrivals": "Late arrivals may miss important introductions"
+  },
+  "map": {
+    "title": "Our Locations",
+    "interactiveMap": "Interactive Map",
+    "mapDescription": "Select a location to view it on 2GIS map",
+    "note": "Click the button below to open the map in a new tab",
+    "findLocation": "Find a Location",
+    "searchPlaceholder": "Search by city, address, or ZIP code",
+    "getDirections": "Get Directions",
+    "callNow": "Call Now",
+    "scheduleVisit": "Schedule Visit",
+    "address": "Address",
+    "phone": "Phone",
+    "hours": "Hours",
+    "services": "Services",
+    "testCenters": "Test Centers",
+    "testCentersDesc": "Our test centers offer proctored exams for certification courses. All locations with \"Test Center\" service offer this feature.",
+    "certificationExams": "Certification Exams",
+    "certificationExamsDesc": "Take official certification exams in a proctored environment",
+    "practiceTests": "Practice Tests",
+    "practiceTestsDesc": "Access practice tests and study materials on-site",
+    "technicalSupport": "Technical Support",
+    "technicalSupportDesc": "Get help with technical issues during your exam",
+    "duration": "Duration",
+    "level": "Level",
+    "format": "Format",
+    "online": "Online",
+    "advanced": "Advanced",
+    "available": "Available",
+    "full": "Full",
+    "viewOn2GIS": "View on 2GIS"
+  },
+  "register": {
+    "title": "Register",
+    "fullName": "Full Name",
+    "email": "Email Address",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "signUp": "Sign Up",
+    "signingUp": "Signing up...",
+    "passwordsDontMatch": "Passwords don't match",
+    "passwordTooShort": "Password must be at least 6 characters",
+    "registrationFailed": "Registration failed. Please try again.",
+    "alreadyHaveAccount": "Already have an account?",
+    "signIn": "Sign In"
+  },
+  "login": {
+    "title": "Login",
+    "email": "Email Address",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signingIn": "Signing in...",
+    "invalidCredentials": "Invalid email or password",
+    "dontHaveAccount": "Don't have an account?",
+    "signUp": "Sign Up",
+    "welcome": "Welcome back to MindStore"
+  },
+  "admin": {
+    "title": "Admin Panel",
+    "loading": "Loading...",
+    "userManagement": "User Management",
+    "courseManagement": "Course Management",
+    "createAdmin": "Create Admin",
+    "addCourse": "Add Course",
+    "name": "Name",
+    "role": "Role",
+    "actions": "Actions",
+    "edit": "Edit",
+    "delete": "Delete",
+    "confirmDeleteUser": "Are you sure you want to delete this user?",
+    "enterAdminEmail": "Enter email for new admin"
+  },
+  "footer": {
+    "description": "MindStore is your premier destination for premium digital learning products from industry experts.",
+    "quickLinks": "Quick Links",
+    "support": "Support",
+    "about": "About Us",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "email": "Email",
+    "phone": "Phone",
+    "copyright": "© {{year}} MindStore. All rights reserved."
+  },
+  "coursesData": {
+    "course1": {
+      "title": "Advanced React Development",
+      "instructor": "Alex Johnson",
+      "description": "Master advanced React concepts including hooks, context, and performance optimization."
+    },
+    "course2": {
+      "title": "UI/UX Design Fundamentals",
+      "instructor": "Sarah Williams",
+      "description": "Learn the principles of user interface and user experience design."
+    },
+    "course3": {
+      "title": "Python for Data Science",
+      "instructor": "Michael Chen",
+      "description": "Comprehensive guide to using Python for data analysis and visualization."
+    },
+    "course4": {
+      "title": "Spanish for Beginners",
+      "instructor": "Maria Rodriguez",
+      "description": "Start your Spanish journey with foundational vocabulary and grammar."
+    },
+    "course5": {
+      "title": "Digital Marketing Mastery",
+      "instructor": "David Thompson",
+      "description": "Complete guide to modern digital marketing strategies and tools."
+    },
+    "course6": {
+      "title": "Mobile App Development",
+      "instructor": "James Wilson",
+      "description": "Build cross-platform mobile apps with React Native."
+    }
+  },
+  "booksData": {
+    "book1": {
+      "title": "React Patterns and Best Practices",
+      "author": "John Smith",
+      "description": "A comprehensive guide to React development patterns and industry best practices."
+    },
+    "book2": {
+      "title": "Design Systems Handbook",
+      "author": "Elena Rodriguez",
+      "description": "Learn how to create and maintain effective design systems for digital products."
+    },
+    "book3": {
+      "title": "Python Data Analysis Cookbook",
+      "author": "Michael Chen",
+      "description": "Practical recipes for data analysis and visualization using Python libraries."
+    },
+    "book4": {
+      "title": "Language Learning Strategies",
+      "author": "Sophie Dubois",
+      "description": "Evidence-based techniques for effective language acquisition and retention."
+    },
+    "book5": {
+      "title": "Digital Marketing Strategy",
+      "author": "Robert Johnson",
+      "description": "Modern approaches to building and executing digital marketing campaigns."
+    },
+    "book6": {
+      "title": "Mobile UI Design Principles",
+      "author": "Emma Wilson",
+      "description": "Essential principles for creating intuitive and engaging mobile user interfaces."
+    }
+  },
+  "lecturesData": {
+    "lecture1": {
+      "title": "Advanced JavaScript Concepts",
+      "speaker": "Alex Johnson",
+      "description": "Deep dive into advanced JavaScript concepts including closures, prototypes, and async patterns."
+    },
+    "lecture2": {
+      "title": "UI/UX Design Trends 2025",
+      "speaker": "Sarah Williams",
+      "description": "Explore the latest trends and innovations in user interface and user experience design."
+    },
+    "lecture3": {
+      "title": "Machine Learning Fundamentals",
+      "speaker": "Dr. Michael Chen",
+      "description": "Introduction to machine learning algorithms and practical applications in real-world scenarios."
+    },
+    "lecture4": {
+      "title": "French Conversation Mastery",
+      "speaker": "Marie Dubois",
+      "description": "Improve your French conversation skills with practical dialogues and pronunciation tips."
+    },
+    "lecture5": {
+      "title": "Blockchain for Business",
+      "speaker": "Robert Thompson",
+      "description": "Understanding blockchain technology and its applications in modern business environments."
+    },
+    "lecture6": {
+      "title": "Mobile App Design Workshop",
+      "speaker": "Emma Wilson",
+      "description": "Hands-on workshop for designing intuitive and engaging mobile application interfaces."
+    }
+  },
+  "podcastsData": {
+    "podcast1": {
+      "title": "Tech Talk Weekly",
+      "host": "Alex Johnson",
+      "description": "Weekly discussions on the latest technology trends, programming tips, and industry insights."
+    },
+    "podcast2": {
+      "title": "Design Matters",
+      "host": "Sarah Williams",
+      "description": "Exploring the world of design with industry experts and creative professionals."
+    },
+    "podcast3": {
+      "title": "Language Learning Journey",
+      "host": "Marie Dubois",
+      "description": "Tips, techniques, and interviews to help you master new languages effectively."
+    },
+    "podcast4": {
+      "title": "Business Growth Strategies",
+      "host": "Robert Thompson",
+      "description": "Practical business strategies and entrepreneurial insights from successful leaders."
+    },
+    "podcast5": {
+      "title": "Data Science Insights",
+      "host": "Dr. Michael Chen",
+      "description": "Deep dives into data science techniques, tools, and real-world applications."
+    },
+    "podcast6": {
+      "title": "Creative Mindset",
+      "host": "Emma Wilson",
+      "description": "Inspiring conversations with creative professionals about their journeys and processes."
+    }
+  },
+  "podcasts": {
+    "title": "Educational Podcasts",
+    "searchPlaceholder": "Search podcasts...",
+    "noPodcasts": "No podcasts found",
+    "subscribe": "Subscribe"
+  },
+  "lectures": {
+    "title": "Live Lectures & Webinars",
+    "searchPlaceholder": "Search lectures...",
+    "noLectures": "No lectures found",
+    "viewDetails": "View Details"
+  }
+}

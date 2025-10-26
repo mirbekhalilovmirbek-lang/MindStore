@@ -1,0 +1,143 @@
+.favorites {
+  width: 100%;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.empty-favorites {
+  text-align: center;
+  padding: 3rem;
+  grid-column: 1 / -1;
+}
+
+.empty-favorites h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.favorites-grid {
+  gap: 2rem;
+}
+
+.favorite-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* Hover effects removed as per user request */
+
+.favorite-image {
+  height: 200px;
+  overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.favorite-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Hover effects removed as per user request */
+
+.favorite-content {
+  padding: 1.5rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.favorite-category {
+  font-size: 0.8rem;
+  color: #6a11cb;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.favorite-title {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.favorite-meta {
+  color: #a0a0c0;
+  margin-bottom: 1rem;
+}
+
+body.dark-mode .favorite-meta {
+  color: #a0a0c0;
+}
+
+.favorite-description {
+  color: #666;
+  margin-bottom: 1rem;
+  flex: 1;
+}
+
+body.dark-mode .favorite-description {
+  color: #ccc;
+}
+
+.favorite-meta-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.favorite-rating {
+  color: #ffa502;
+  font-weight: 500;
+}
+
+.favorite-price {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #6a11cb;
+}
+
+body.dark-mode .favorite-price {
+  color: #9b59b6;
+}
+
+.favorite-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.favorite-actions .btn {
+  flex: 1;
+  text-align: center;
+  padding: 0.7rem;
+  font-size: 0.9rem;
+}
+
+.remove-from-favorites-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-from-favorites-btn:hover {
+  background: #ff5252;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+}

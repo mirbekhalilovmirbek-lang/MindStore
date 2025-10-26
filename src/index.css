@@ -1,0 +1,68 @@
+/* Global styles for MindStore */
+:root {
+  /* Light theme variables */
+  --bg-color: #f8f9fa;
+  --text-color: #333333;
+  --card-bg: #ffffff;
+  --card-border: #e1e5eb;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --button-primary-bg: #6a11cb;
+  --button-primary-hover: #5a0db0;
+  --button-secondary-bg: #2575fc;
+  --button-secondary-hover: #1c68e0;
+  --input-bg: #ffffff;
+  --input-border: #e1e5eb;
+  --footer-bg: #ffffff;
+}
+
+.light {
+  --bg-color: #f8f9fa;
+  --text-color: #333333;
+  --card-bg: #ffffff;
+  --card-border: #e1e5eb;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --button-primary-bg: #6a11cb;
+  --button-primary-hover: #5a0db0;
+  --button-secondary-bg: #2575fc;
+  --button-secondary-hover: #1c68e0;
+  --input-bg: #ffffff;
+  --input-border: #e1e5eb;
+  --footer-bg: #ffffff;
+}
+
+.dark {
+  --bg-color: #1e1e28;
+  --text-color: #e6e6f0;
+  --card-bg: #2d2d3a;
+  --card-border: #444455;
+  --header-bg: rgba(30, 30, 40, 0.95);
+  --button-primary-bg: #7b2fd0;
+  --button-primary-hover: #6a11cb;
+  --button-secondary-bg: #3a85ff;
+  --button-secondary-hover: #2575fc;
+  --input-bg: #2a2a38;
+  --input-border: #444455;
+  --footer-bg: #2d2d3a;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Global transition for theme switching */
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
