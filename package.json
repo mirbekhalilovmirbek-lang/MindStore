@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "MindStore - Digital Learning Products Marketplace",
   "main": "index.js",
-  "scripts": {
-    "dev": "vite",
-    "prebuild": "npm install",
-    "build": "vite build",
-    "vercel-build": "npm run build",
-    "preview": "vite preview"
-  },
+ "scripts": {
+  "dev": "vite",
+  "build": "vite build",
+  "vercel-build": "npm run build",
+  "preview": "vite preview"
+},
+
   "keywords": ["react", "vite", "learning", "courses", "mindstore"],
   "author": "MindStore Team",
   "license": "MIT",
