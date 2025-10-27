@@ -107,8 +107,9 @@
   transition: color 0.3s ease;
 }
 
+/* Removed hover effects */
 .remove-btn:hover {
-  color: #ff4757;
+  /* color: #ff4757; */
 }
 
 .cart-summary {
@@ -154,8 +155,9 @@
   font-weight: 500;
 }
 
+/* Removed hover effects */
 .installment-link:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 /* Modal Styles */

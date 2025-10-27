@@ -64,6 +64,32 @@
 - `npm run build` - Build for production
 - `npm run preview` - Preview production build
 
+## Deployment
+
+### Deploying to Vercel
+
+1. Push your code to a GitHub repository
+2. Go to [Vercel](https://vercel.com) and sign up/sign in
+3. Click "New Project" and import your GitHub repository
+4. Vercel will automatically detect the project settings:
+   - Framework: Vite
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+5. Add environment variables if needed (see .env.example)
+6. Click "Deploy" and your site will be live!
+
+### Environment Variables
+
+Create a `.env` file in the root directory with the following variables:
+```env
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_firebase_auth_domain
+VITE_FIREBASE_PROJECT_ID=your_firebase_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_firebase_storage_bucket
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_firebase_messaging_sender_id
+VITE_FIREBASE_APP_ID=your_firebase_app_id
+```
+
 ## Project Structure
 
 ```

@@ -116,10 +116,11 @@ const Podcasts = () => {
     alert(`Previewing: ${podcast.title}\n\n${podcast.description}`);
   };
 
-  const handleSubscribe = (podcast) => {
-    alert(`You have subscribed to: ${podcast.title}\n\nYou will receive updates about new episodes.`);
-    const podcastItem = { ...podcast, type: 'podcast' };
-    addToCart(podcastItem);
+  // Function to search Google for podcast content
+  const searchGoogle = (podcast) => {
+    const searchQuery = `${podcast.title} ${podcast.host}`;
+    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+    window.open(googleSearchUrl, '_blank');
   };
 
   return (
@@ -180,9 +181,9 @@ const Podcasts = () => {
                   </button>
                   <button 
                     className="btn btn-secondary"
-                    onClick={() => handleSubscribe(podcast)}
+                    onClick={() => searchGoogle(podcast)}
                   >
-                    {t('podcasts.subscribe')}
+                    {t('podcasts.searchGoogle') || 'Search Google'}
                   </button>
                 </div>
               </div>

@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
+import { auth } from '../firebase';
 
 const AuthContext = createContext();
 
@@ -12,126 +13,208 @@ export const AuthProvider = ({ children }) => {
 
   // Инициализация пользователя при загрузке приложения
   useEffect(() => {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      setCurrentUser(JSON.parse(storedUser));
+    // Try to use Firebase auth if available
+    if (auth) {
+      try {
+        const unsubscribe = auth.onAuthStateChanged(user => {
+          setCurrentUser(user);
+          setLoading(false);
+        });
+        
+        return unsubscribe;
+      } catch (error) {
+        console.warn("Firebase auth error, falling back to localStorage:", error);
+        // Fallback to localStorage if Firebase fails
+        initializeLocalStorage();
+      }
+    } else {
+      // Fallback to localStorage if Firebase is not configured
+      initializeLocalStorage();
     }
     
-    // Создаем тестового администратора при первом запуске
-    const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
-    const adminExists = storedUsers.some(user => user.role === 'admin');
-    
-    if (!adminExists) {
+    function initializeLocalStorage() {
+      const storedUser = localStorage.getItem('user');
+      if (storedUser) {
+        setCurrentUser(JSON.parse(storedUser));
+      }
+      
+      // Создаем тестового администратора при первом запуске
+      const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+      const adminExists = storedUsers.some(user => user.role === 'admin');
+      
+      if (!adminExists) {
+        const adminUser = {
+          id: 1,
+          email: 'admin@example.com',
+          name: 'Admin User',
+          role: 'admin'
+        };
+        
+        storedUsers.push(adminUser);
+        localStorage.setItem('users', JSON.stringify(storedUsers));
+      }
+      
+      // Создаем тестовые курсы при первом запуске
+      const storedCourses = JSON.parse(localStorage.getItem('courses') || '[]');
+      
+      if (storedCourses.length === 0) {
+        const testCourses = [
+          {
+            id: 1,
+            title: 'React для начинающих',
+            instructor: 'Иван Петров',
+            price: 49.99
+          },
+          {
+            id: 2,
+            title: 'Продвинутый JavaScript',
+            instructor: 'Мария Сидорова',
+            price: 79.99
+          },
+          {
+            id: 3,
+            title: 'Node.js и Express',
+            instructor: 'Алексей Иванов',
+            price: 69.99
+          }
+        ];
+        
+        localStorage.setItem('courses', JSON.stringify(testCourses));
+      }
+      
+      setLoading(false);
+    }
+  }, []);
+
+  // Функция регистрации
+  const signup = async (userData) => {
+    if (auth && auth.createUserWithEmailAndPassword) {
+      // Use Firebase auth if available
+      try {
+        const userCredential = await auth.createUserWithEmailAndPassword(
+          userData.email, 
+          userData.password
+        );
+        const user = userCredential.user;
+        const newUser = {
+          id: user.uid,
+          email: user.email,
+          name: userData.name,
+          role: 'user'
+        };
+        localStorage.setItem('user', JSON.stringify(newUser));
+        setCurrentUser(newUser);
+        return newUser;
+      } catch (error) {
+        console.error("Firebase signup error:", error);
+        throw error;
+      }
+    } else {
+      // В реальном приложении здесь будет запрос к API
+      const newUser = {
+        id: Date.now(),
+        ...userData,
+        role: 'user', // По умолчанию все новые пользователи - обычные пользователи
+        createdAt: new Date().toISOString()
+      };
+      
+      // Сохраняем пользователя в localStorage (в реальном приложении это будет на сервере)
+      localStorage.setItem('user', JSON.stringify(newUser));
+      setCurrentUser(newUser);
+      
+      return newUser;
+    }
+  };
+
+  // Функция входа
+  const login = async (email, password) => {
+    if (auth && auth.signInWithEmailAndPassword) {
+      // Use Firebase auth if available
+      try {
+        const userCredential = await auth.signInWithEmailAndPassword(email, password);
+        const user = userCredential.user;
+        const userData = {
+          id: user.uid,
+          email: user.email,
+          name: user.displayName || email.split('@')[0],
+          role: 'user'
+        };
+        localStorage.setItem('user', JSON.stringify(userData));
+        setCurrentUser(userData);
+        return userData;
+      } catch (error) {
+        console.error("Firebase login error:", error);
+        throw error;
+      }
+    } else {
+      // В реальном приложении здесь будет запрос к API для проверки учетных данных
+      // Для демонстрации мы просто проверим, есть ли пользователь в localStorage
+      
+      const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+      const user = storedUsers.find(u => u.email === email);
+      
+      if (user) {
+        // В реальном приложении здесь должна быть проверка пароля
+        localStorage.setItem('user', JSON.stringify(user));
+        setCurrentUser(user);
+        return user;
+      }
+      
+      // Если пользователя нет в списке, создаем его (для демонстрации)
+      const newUser = {
+        id: Date.now(),
+        email,
+        name: email.split('@')[0],
+        role: 'user'
+      };
+      
+      storedUsers.push(newUser);
+      localStorage.setItem('users', JSON.stringify(storedUsers));
+      localStorage.setItem('user', JSON.stringify(newUser));
+      setCurrentUser(newUser);
+      
+      return newUser;
+    }
+  };
+
+  // Функция выхода
+  const logout = async () => {
+    if (auth && auth.signOut) {
+      // Use Firebase auth if available
+      try {
+        await auth.signOut();
+        localStorage.removeItem('user');
+        setCurrentUser(null);
+      } catch (error) {
+        console.error("Firebase logout error:", error);
+        throw error;
+      }
+    } else {
+      localStorage.removeItem('user');
+      setCurrentUser(null);
+    }
+  };
+
+  // Функция для создания администратора (только для демонстрации)
+  const createAdmin = (email, password) => {
+    if (auth && auth.createUserWithEmailAndPassword) {
+      // Use Firebase auth if available
+      console.log('Firebase admin creation not implemented');
+      return null;
+    } else {
+      const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
       const adminUser = {
-        id: 1,
-        email: 'admin@example.com',
-        name: 'Admin User',
+        id: Date.now(),
+        email,
+        name: 'Admin',
         role: 'admin'
       };
       
       storedUsers.push(adminUser);
       localStorage.setItem('users', JSON.stringify(storedUsers));
-    }
-    
-    // Создаем тестовые курсы при первом запуске
-    const storedCourses = JSON.parse(localStorage.getItem('courses') || '[]');
-    
-    if (storedCourses.length === 0) {
-      const testCourses = [
-        {
-          id: 1,
-          title: 'React для начинающих',
-          instructor: 'Иван Петров',
-          price: 49.99
-        },
-        {
-          id: 2,
-          title: 'Продвинутый JavaScript',
-          instructor: 'Мария Сидорова',
-          price: 79.99
-        },
-        {
-          id: 3,
-          title: 'Node.js и Express',
-          instructor: 'Алексей Иванов',
-          price: 69.99
-        }
-      ];
       
-      localStorage.setItem('courses', JSON.stringify(testCourses));
+      return adminUser;
     }
-    
-    setLoading(false);
-  }, []);
-
-  // Функция регистрации
-  const signup = async (userData) => {
-    // В реальном приложении здесь будет запрос к API
-    const newUser = {
-      id: Date.now(),
-      ...userData,
-      role: 'user', // По умолчанию все новые пользователи - обычные пользователи
-      createdAt: new Date().toISOString()
-    };
-    
-    // Сохраняем пользователя в localStorage (в реальном приложении это будет на сервере)
-    localStorage.setItem('user', JSON.stringify(newUser));
-    setCurrentUser(newUser);
-    
-    return newUser;
-  };
-
-  // Функция входа
-  const login = async (email, password) => {
-    // В реальном приложении здесь будет запрос к API для проверки учетных данных
-    // Для демонстрации мы просто проверим, есть ли пользователь в localStorage
-    
-    const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
-    const user = storedUsers.find(u => u.email === email);
-    
-    if (user) {
-      // В реальном приложении здесь должна быть проверка пароля
-      localStorage.setItem('user', JSON.stringify(user));
-      setCurrentUser(user);
-      return user;
-    }
-    
-    // Если пользователя нет в списке, создаем его (для демонстрации)
-    const newUser = {
-      id: Date.now(),
-      email,
-      name: email.split('@')[0],
-      role: 'user'
-    };
-    
-    storedUsers.push(newUser);
-    localStorage.setItem('users', JSON.stringify(storedUsers));
-    localStorage.setItem('user', JSON.stringify(newUser));
-    setCurrentUser(newUser);
-    
-    return newUser;
-  };
-
-  // Функция выхода
-  const logout = () => {
-    localStorage.removeItem('user');
-    setCurrentUser(null);
-  };
-
-  // Функция для создания администратора (только для демонстрации)
-  const createAdmin = (email, password) => {
-    const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
-    const adminUser = {
-      id: Date.now(),
-      email,
-      name: 'Admin',
-      role: 'admin'
-    };
-    
-    storedUsers.push(adminUser);
-    localStorage.setItem('users', JSON.stringify(storedUsers));
-    
-    return adminUser;
   };
 
   const value = {

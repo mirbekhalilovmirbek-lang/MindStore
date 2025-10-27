@@ -409,44 +409,17 @@ const CourseDetail = () => {
           <h1 className="course-title">{course.title}</h1>
           <p className="course-instructor">{i18n.language === 'ru' ? `от ${course.instructor}` : `by ${course.instructor}`}</p>
           
-          <div className="course-meta">
-            <div className="course-rating">
-              ⭐ {course.rating} ({course.students} {i18n.language === 'ru' ? 'студентов' : 'students'})
-            </div>
-            <div className="course-duration">
-              🕒 {course.duration} ({course.lectures} {i18n.language === 'ru' ? 'лекций' : 'lectures'})
-            </div>
-            <div className="course-level">
-              🎯 {i18n.language === 'ru' ? course.level : course.level + ' Level'}
-            </div>
-          </div>
+          
           
           <div className="course-price-section">
             <div className="price-container">
-              <span className="current-price">{formatKgsPrice(convertUsdToKgs(course.price))} KGS</span>
-              <span className="original-price">{formatKgsPrice(convertUsdToKgs(course.originalPrice))} KGS</span>
-              <span className="discount">{i18n.language === 'ru' ? `Сэкономить ${formatKgsPrice(convertUsdToKgs(course.originalPrice - course.price))} KGS` : `Save ${formatKgsPrice(convertUsdToKgs(course.originalPrice - course.price))} KGS`}</span>
+              
             </div>
             
-            <div className="quantity-selector">
-              <label>{i18n.language === 'ru' ? 'Количество:' : 'Quantity:'}</label>
-              <select 
-                value={quantity} 
-                onChange={(e) => setQuantity(parseInt(e.target.value))}
-                className="form-input"
-              >
-                {[1, 2, 3, 4, 5].map(num => (
-                  <option key={num} value={num}>{num}</option>
-                ))}
-              </select>
-            </div>
+           
           </div>
           
-          <div className="course-actions">
-            <button className="btn btn-primary" onClick={handleAddToCart}>{i18n.language === 'ru' ? 'Добавить в корзину' : 'Add to Cart'}</button>
-            <button className="btn btn-secondary" onClick={handleReserve}>{i18n.language === 'ru' ? 'Забронировать курс' : 'Reserve Course'}</button>
-            <button className="btn btn-outline">{i18n.language === 'ru' ? 'Добавить в список желаний' : 'Add to Wishlist'}</button>
-          </div>
+          
         </div>
       </div>
       

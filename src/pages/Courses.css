@@ -44,13 +44,7 @@ body:not(.dark-mode) .filter-btn {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Removed hover effects */
-.filter-btn:hover,
-.filter-btn.active {
-  /* background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  border-color: transparent;
-  color: white; */
-}
+
 
 .courses-grid {
   gap: 2rem;
@@ -100,10 +94,7 @@ body:not(.dark-mode) .filter-btn {
   z-index: -1;
 }
 
-/* Removed hover effects */
-.course-card:hover::after {
-  /* opacity: 1; */
-}
+
 
 .course-image {
   height: 200px;
@@ -118,10 +109,7 @@ body:not(.dark-mode) .filter-btn {
   transition: transform 0.3s ease;
 }
 
-/* Removed hover effects */
-.course-image img:hover {
-  /* transform: scale(1.05); */
-}
+
 
 .course-content {
   padding: 1.5rem;
@@ -209,12 +197,7 @@ body:not(.dark-mode) .course-description {
   color: #ff6b6b;
 }
 
-/* Removed hover effects */
-.btn-outline:hover {
-  /* background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
-  color: white;
-  border-color: transparent; */
-}
+
 
 .no-results {
   text-align: center;
@@ -234,4 +217,14 @@ body:not(.dark-mode) .course-description {
   }
   
   .search-bar {
-    max
+    max-width: 100%;
+  }
+  
+  .grid-cols-3 {
+    grid-template-columns: 1fr;
+  }
+  
+  .course-actions {
+    flex-direction: column;
+  }
+}

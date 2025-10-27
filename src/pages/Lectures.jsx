@@ -109,6 +109,13 @@ const Lectures = () => {
     return matchesCategory && matchesSearch;
   });
 
+  // Function to search Google for lecture content
+  const searchGoogle = (lecture) => {
+    const searchQuery = `${lecture.title} ${lecture.speaker}`;
+    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
+    window.open(googleSearchUrl, '_blank');
+  };
+
   const handleAddToCart = (lecture) => {
     // Add lecture type to distinguish from other item types
     const lectureItem = { ...lecture, type: 'lecture' };
@@ -165,7 +172,12 @@ const Lectures = () => {
                 </div>
                 
                 <div className="lecture-actions">
-                  <Link to={`/lecture/${lecture.id}`} className="btn btn-primary">{t('lectures.viewDetails')}</Link>
+                  <button 
+                    className="btn btn-primary"
+                    onClick={() => searchGoogle(lecture)}
+                  >
+                    {t('lectures.searchGoogle') || 'Search Google'}
+                  </button>
                   <button 
                     className="btn btn-secondary"
                     onClick={() => handleAddToCart(lecture)}

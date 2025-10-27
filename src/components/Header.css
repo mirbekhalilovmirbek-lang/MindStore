@@ -1,25 +1,35 @@
+/* Header styles for MindStore */
 .header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   background: var(--header-bg);
   border-bottom: 1px solid var(--card-border);
   padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 100;
+  z-index: 1000;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  height: 70px;
+  display: flex;
+  align-items: center;
 }
 
 .header.scrolled {
   padding: 0.5rem 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  height: 60px;
 }
 
-.header-container {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 2rem;
+.header-content {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
 }
 
 .logo {
@@ -44,6 +54,10 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #6a11cb;
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .nav-list {
@@ -55,15 +69,14 @@
 .nav-list a {
   color: var(--text-color);
   text-decoration: none;
-  font-weight: 500;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 .nav-list a:hover {
-  background: rgba(106, 17, 203, 0.1);
-  color: #6a11cb;
+  /* Removed hover effects */
 }
 
 .header-actions {
@@ -81,14 +94,18 @@
   transition: all 0.2s ease;
 }
 
+/* Keep hover effects on cart link as per user preference */
+.cart-link:hover {
+  transform: scale(1.1);
+  color: #6a11cb;
+}
+
 .favorites-link:hover, 
-.cart-link:hover, 
 .profile-link:hover,
 .login-link:hover,
 .register-link:hover,
 .admin-link:hover {
-  color: #6a11cb;
-  transform: scale(1.1);
+  /* Removed hover effects */
 }
 
 .favorites-icon, .cart-icon, .profile-icon, .login-icon, .register-icon, .admin-icon {
@@ -127,7 +144,12 @@
 }
 
 .theme-toggle:hover {
-  background: rgba(106, 17, 203, 0.1);
+  /* Removed hover effects */
+}
+
+.language-selector-container {
+  display: flex;
+  align-items: center;
 }
 
 /* Mobile menu toggle */
@@ -150,33 +172,12 @@
 }
 
 .menu-toggle:hover {
-  background: rgba(106, 17, 203, 0.1);
+  /* Removed hover effects as per user preference */
 }
 
 /* Remove complex animations and floating shapes */
 .header-animation {
   display: none;
-}
-
-/* Simple animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 /* Mobile menu styles */
@@ -188,6 +189,7 @@
   height: 100%;
   background: var(--header-bg);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -229,11 +231,11 @@
   padding: 1rem;
   border-radius: 8px;
   transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 .mobile-nav-list a:hover {
-  background: rgba(106, 17, 203, 0.1);
-  color: #6a11cb;
+  /* Removed hover effects */
 }
 
 .mobile-header-actions {
@@ -306,7 +308,7 @@
 }
 
 @media (max-width: 768px) {
-  .header-container {
+  .header-content {
     padding: 0 1rem;
   }
   
@@ -316,5 +318,14 @@
   
   .header-actions {
     gap: 0.8rem;
+  }
+  
+  .header {
+    height: 60px;
+    padding: 0.5rem 0;
+  }
+  
+  .header.scrolled {
+    height: 50px;
   }
 }

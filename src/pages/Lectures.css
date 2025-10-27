@@ -44,6 +44,7 @@ body:not(.dark-mode) .filter-btn {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
+/* Removed hover effects */
 .filter-btn:hover,
 .filter-btn.active {
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
@@ -99,6 +100,7 @@ body:not(.dark-mode) .filter-btn {
   z-index: -1;
 }
 
+/* Removed hover effects */
 .lecture-card:hover::after {
   opacity: 1;
 }
@@ -117,6 +119,7 @@ body:not(.dark-mode) .filter-btn {
   transition: transform 0.3s ease;
 }
 
+/* Removed hover effects */
 .lecture-image img:hover {
   transform: scale(1.05);
 }

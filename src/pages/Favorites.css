@@ -131,9 +131,10 @@ body.dark-mode .favorite-price {
   transition: all 0.2s ease;
 }
 
+/* Removed hover effects */
 .remove-from-favorites-btn:hover {
-  background: #ff5252;
-  transform: translateY(-2px);
+  /* background: #ff5252;
+  transform: translateY(-2px); */
 }
 
 @media (max-width: 768px) {

@@ -78,6 +78,7 @@ body:not(.dark-mode) .filter-btn {
   transition: transform 0.3s ease;
 }
 
+
 .podcast-image img:hover {
   transform: scale(1.05);
 }
@@ -96,6 +97,7 @@ body:not(.dark-mode) .filter-btn {
   opacity: 0;
   transition: opacity 0.3s ease;
 }
+
 
 .podcast-image:hover .play-button {
   opacity: 1;

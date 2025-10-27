@@ -66,9 +66,8 @@
   color: white;
 }
 
-.btn-danger:hover {
-  background: #ff5252;
-}
+/* Removed hover effects */
+
 
 .loading {
   text-align: center;

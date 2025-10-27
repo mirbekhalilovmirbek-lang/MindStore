@@ -1,33 +1,42 @@
 .language-selector {
   display: flex;
-  border-radius: 10px;
+  border-radius: 4px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-  height: 40px;
-  width: 100px;
+  height: 32px;
+  width: 70px;
+  background: var(--header-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: none;
 }
 
 .lang-btn {
-  padding: 8px 15px;
-  font-size: 14px;
-  font-weight: 600;
+  flex: 1;
+  padding: 0;
+  font-size: 12px;
+  font-weight: 500;
   border: none;
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: transparent;
+  color: var(--text-color);
   cursor: pointer;
-  transition: all 0.3s ease;
   outline: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: none;
 }
 
+/* Remove all hover effects as per user preference */
 .lang-btn:hover {
-  background-color: #e0e0e0;
+  background-color: transparent;
+  color: var(--text-color);
 }
 
 .lang-btn.active {
   background-color: #6a11cb;
   color: white;
+  font-weight: 600;
 }
 
 .lang-btn:first-child {
-  border-right: 1px solid #ddd;
+  border-right: 1px solid var(--card-border);
 }

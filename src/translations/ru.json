@@ -1,6 +1,6 @@
 {
   "header": {
-    "logo": "MindStore",
+    "logo": "LearnIT",
     "home": "Главная",
     "courses": "Курсы",
     "books": "Книги",
@@ -28,7 +28,7 @@
     "subtitle": "Откройте для себя премиальные цифровые обучающие продукты от экспертов отрасли",
     "exploreCourses": "Изучить курсы",
     "installmentPlans": "Планы рассрочки",
-    "whyChoose": "Почему выбирают MindStore?",
+    "whyChoose": "Почему выбирают LearnIT?",
     "expertInstructors": "Экспертные инструкторы",
     "expertInstructorsDesc": "Учитесь у лидеров отрасли и профессионалов с реальным опытом",
     "flexiblePayments": "Гибкие платежи",
@@ -43,7 +43,7 @@
     "languages": "Языки",
     "languagesDesc": "Изучайте новые языки с помощью иммерсивных методик",
     "readyToLearn": "Готовы начать обучение?",
-    "joinStudents": "Присоединяйтесь к тысячам студентов, которые преобразили свою карьеру с MindStore",
+    "joinStudents": "Присоединяйтесь к тысячам студентов, которые преобразили свою карьеру с LearnIT",
     "getStarted": "Начать сегодня",
     "month": "месяц"
   },
@@ -197,13 +197,15 @@
     "title": "Живые лекции и вебинары",
     "searchPlaceholder": "Поиск лекций...",
     "noLectures": "Лекции не найдены",
-    "viewDetails": "Посмотреть детали"
+    "viewDetails": "Посмотреть детали",
+    "searchGoogle": "Поиск в Google"
   },
   "podcasts": {
     "title": "Образовательные подкасты",
     "searchPlaceholder": "Поиск подкастов...",
     "noPodcasts": "Подкасты не найдены",
-    "subscribe": "Подписаться"
+    "subscribe": "Подписаться",
+    "searchGoogle": "Поиск в Google"
   },
   "cart": {
     "title": "Ваша корзина",
@@ -368,12 +370,16 @@
     "password": "Пароль",
     "confirmPassword": "Подтвердите пароль",
     "signUp": "Зарегистрироваться",
+    "signUpWithGoogle": "Зарегистрироваться через Google",
     "signingUp": "Регистрация...",
     "passwordsDontMatch": "Пароли не совпадают",
     "passwordTooShort": "Пароль должен содержать не менее 6 символов",
     "registrationFailed": "Ошибка регистрации. Пожалуйста, попробуйте еще раз.",
     "alreadyHaveAccount": "Уже есть аккаунт?",
-    "signIn": "Войти"
+    "signIn": "Войти",
+    "or": "или",
+    "chooseAccount": "Выберите аккаунт",
+    "addAccount": "Добавить другой аккаунт"
   },
   "login": {
     "title": "Вход",
@@ -384,7 +390,14 @@
     "invalidCredentials": "Неверный адрес электронной почты или пароль",
     "dontHaveAccount": "Нет аккаунта?",
     "signUp": "Зарегистрироваться",
-    "welcome": "Добро пожаловать обратно в MindStore"
+    "welcome": "Добро пожаловать обратно в LearnIT",
+    "or": "или",
+    "signInWithGoogle": "Войти через Google",
+    "chooseAccount": "Выберите аккаунт",
+    "addAccount": "Добавить другой аккаунт",
+    "enterPassword": "Введите пароль",
+    "rememberMe": "Запомнить меня",
+    "forgotPassword": "Забыли пароль?"
   },
   "admin": {
     "title": "Админ-панель",
@@ -402,7 +415,7 @@
     "enterAdminEmail": "Введите адрес электронной почты для нового администратора"
   },
   "footer": {
-    "description": "MindStore - ваша главная destination для премиальных цифровых обучающих продуктов от экспертов отрасли.",
+    "description": "LearnIT - ваша главная destination для премиальных цифровых обучающих продуктов от экспертов отрасли.",
     "quickLinks": "Быстрые ссылки",
     "support": "Поддержка",
     "about": "О нас",
@@ -412,6 +425,6 @@
     "privacy": "Политика конфиденциальности",
     "email": "Электронная почта",
     "phone": "Телефон",
-    "copyright": "© {{year}} MindStore. Все права защищены."
+    "copyright": "© {{year}} LearnIT. Все права защищены."
   }
 }

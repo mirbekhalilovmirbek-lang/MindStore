@@ -1,22 +1,40 @@
 // src/firebase.js
-// Firebase configuration commented out to prevent initialization errors
-// import { initializeApp } from "firebase/app";
-// import { getAuth } from "firebase/auth";
+// Firebase configuration using environment variables
+import { initializeApp } from "firebase/app";
+import { getAuth } from "firebase/auth";
 
-// const firebaseConfig = {
-//   apiKey: "ТҮЗӨТ: өз API ачкычыңды бул жерге кой",
-//   authDomain: "ТҮЗӨТ: өз домениң",
-//   projectId: "ТҮЗӨТ: өз project IDң",
-//   storageBucket: "ТҮЗӨТ: өз storage bucket",
-//   messagingSenderId: "ТҮЗӨТ: өз sender ID",
-//   appId: "ТҮЗӨТ: өз app ID",
-// };
+// Use environment variables for Firebase config
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+};
 
-// Firebase’ди баштайбыз
-// const app = initializeApp(firebaseConfig);
+// Check if we have a valid API key
+let app = null;
+let auth = null;
 
-// Auth системасын экспорт кылабыз
-// export const auth = getAuth(app);
+if (firebaseConfig.apiKey && firebaseConfig.apiKey !== "undefined") {
+  try {
+    // Initialize Firebase
+    app = initializeApp(firebaseConfig);
+    
+    // Initialize Firebase Authentication and get a reference to the service
+    auth = getAuth(app);
+  } catch (error) {
+    console.warn("Firebase initialization error:", error);
+    // Fallback to null values
+    app = null;
+    auth = null;
+  }
+} else {
+  console.warn("Firebase API key not found. Firebase features will be disabled.");
+  app = null;
+  auth = null;
+}
 
-// Export a dummy auth object to prevent breaking the app
-export const auth = null;
+export { auth };
+export default app;
