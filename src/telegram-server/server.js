@@ -19,6 +19,29 @@ const TELEGRAM_API_URL = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}`;
 const FIXED_CHAT_ID = process.env.TELEGRAM_CHAT_ID || null;
 let subscribedChats = FIXED_CHAT_ID ? [FIXED_CHAT_ID] : [];
 
+// Cart storage (in a real app, this would be in a database)
+let carts = {};
+
+// Function to display cart contents in console
+function displayCartInConsole(userId, action) {
+  const cart = carts[userId] || { items: [], total: 0 };
+  console.log(`\n=== CART UPDATE ===`);
+  console.log(`User ID: ${userId}`);
+  console.log(`Action: ${action}`);
+  console.log(`Items in cart: ${cart.items.length}`);
+  
+  if (cart.items.length > 0) {
+    console.log('Cart Contents:');
+    cart.items.forEach((item, index) => {
+      console.log(`  ${index + 1}. ${item.title} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`);
+    });
+    console.log(`Total: $${cart.total.toFixed(2)}`);
+  } else {
+    console.log('Cart is empty');
+  }
+  console.log('===================\n');
+}
+
 // Function to send message to Telegram
 const sendTelegramMessage = async (message) => {
   try {
@@ -55,6 +78,119 @@ const sendTelegramMessage = async (message) => {
   }
 };
 
+// Cart endpoints
+// Get cart for a user
+app.get('/cart/:userId', (req, res) => {
+  const { userId } = req.params;
+  const cart = carts[userId] || { items: [], total: 0 };
+  displayCartInConsole(userId, 'VIEW CART');
+  res.json({ success: true, cart });
+});
+
+// Add item to cart
+app.post('/cart/:userId/add', (req, res) => {
+  const { userId } = req.params;
+  const { item } = req.body;
+  
+  if (!item || !item.id || !item.title || item.price === undefined) {
+    return res.status(400).json({ 
+      success: false, 
+      error: 'Item must include id, title, and price' 
+    });
+  }
+  
+  if (!carts[userId]) {
+    carts[userId] = { items: [], total: 0 };
+  }
+  
+  const existingItemIndex = carts[userId].items.findIndex(i => i.id === item.id);
+  
+  if (existingItemIndex >= 0) {
+    // Update quantity if item already exists
+    carts[userId].items[existingItemIndex].quantity += item.quantity || 1;
+  } else {
+    // Add new item
+    carts[userId].items.push({ 
+      ...item, 
+      quantity: item.quantity || 1 
+    });
+  }
+  
+  // Recalculate total
+  carts[userId].total = carts[userId].items.reduce(
+    (sum, item) => sum + (item.price * item.quantity), 
+    0
+  );
+  
+  console.log(`Item added to cart for user ${userId}:`, item);
+  displayCartInConsole(userId, 'ADD ITEM');
+  res.json({ 
+    success: true, 
+    message: 'Item added to cart',
+    cart: carts[userId]
+  });
+});
+
+// Remove item from cart
+app.post('/cart/:userId/remove', (req, res) => {
+  const { userId } = req.params;
+  const { itemId } = req.body;
+  
+  if (!carts[userId]) {
+    return res.status(404).json({ 
+      success: false, 
+      error: 'Cart not found for user' 
+    });
+  }
+  
+  carts[userId].items = carts[userId].items.filter(item => item.id !== itemId);
+  
+  // Recalculate total
+  carts[userId].total = carts[userId].items.reduce(
+    (sum, item) => sum + (item.price * item.quantity), 
+    0
+  );
+  
+  console.log(`Item removed from cart for user ${userId}:`, itemId);
+  displayCartInConsole(userId, 'REMOVE ITEM');
+  res.json({ 
+    success: true, 
+    message: 'Item removed from cart',
+    cart: carts[userId]
+  });
+});
+
+// Clear cart
+app.post('/cart/:userId/clear', (req, res) => {
+  const { userId } = req.params;
+  
+  if (carts[userId]) {
+    carts[userId].items = [];
+    carts[userId].total = 0;
+    console.log(`Cart cleared for user ${userId}`);
+  }
+  
+  displayCartInConsole(userId, 'CLEAR CART');
+  res.json({ 
+    success: true, 
+    message: 'Cart cleared',
+    cart: carts[userId] || { items: [], total: 0 }
+  });
+});
+
+// Get all carts (for debugging/admin purposes)
+app.get('/carts', (req, res) => {
+  console.log('\n=== ALL CARTS ===');
+  Object.keys(carts).forEach(userId => {
+    displayCartInConsole(userId, 'VIEW ALL CARTS');
+  });
+  if (Object.keys(carts).length === 0) {
+    console.log('No carts found');
+    console.log('=================\n');
+  }
+  res.json({ success: true, carts });
+});
+
 // Endpoint for Telegram webhook (to receive messages from users)
 app.post(`/webhook/${TELEGRAM_BOT_TOKEN}`, async (req, res) => {
   try {
@@ -84,6 +220,27 @@ Your chat ID is: ${chatId}
           chat_id: chatId,
           text: welcomeMessage
         });
+      } else if (text === '/cart') {
+        // Show cart status
+        const cart = carts[chatId] || { items: [], total: 0 };
+        let cartMessage = '🛒 Your Cart:\n';
+        
+        if (cart.items.length === 0) {
+          cartMessage += 'Your cart is empty.';
+        } else {
+          cart.items.forEach(item => {
+            cartMessage += `\n- ${item.title} (x${item.quantity}) - $${(item.price * item.quantity).toFixed(2)}`;
+          });
+          cartMessage += `\n\nTotal: $${cart.total.toFixed(2)}`;
+        }
+        
+        await axios.post(`${TELEGRAM_API_URL}/sendMessage`, {
+          chat_id: chatId,
+          text: cartMessage
+        });
+        
+        // Also display in console
+        displayCartInConsole(chatId, 'TELEGRAM /cart COMMAND');
       }
     }
     
@@ -200,4 +357,11 @@ app.listen(PORT, () => {
   } else {
     console.log('No fixed chat ID set. Message your bot or set TELEGRAM_CHAT_ID in .env file.');
   }
+  
+  console.log('Cart API endpoints available:');
+  console.log(`- GET    /cart/:userId`);
+  console.log(`- POST   /cart/:userId/add`);
+  console.log(`- POST   /cart/:userId/remove`);
+  console.log(`- POST   /cart/:userId/clear`);
+  console.log(`- GET    /carts`);
 });

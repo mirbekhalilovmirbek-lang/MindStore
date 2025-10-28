@@ -162,7 +162,6 @@ const Courses = () => {
                 <div className="course-category">{course.category}</div>
                 <h3 className="course-title">{course.title}</h3>
                 <p className="course-instructor">{t('courses.by')} {course.instructor}</p>
-                <p className="course-description">{course.description}</p>
                 
                 <div className="course-meta">
                   <div className="course-rating">

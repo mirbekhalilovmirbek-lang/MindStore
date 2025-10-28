@@ -1,5 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import Books from './Books';
+import Courses from './Courses';
+import Lectures from './Lectures';
+import Podcasts from './Podcasts';
+import Cart from './Cart';
+import Favorites from './Favorites';
+import Profile from './Profile';
+import Reservation from './Reservation';
+import Map from './Map';
 import './Home.css';
 
 const Home = () => {
@@ -107,6 +116,51 @@ const Home = () => {
     </Link>
   </div>
 </section>
+
+      {/* Books Component */}
+      <section className="home-section">
+        <Books />
+      </section>
+
+      {/* Courses Component */}
+      <section className="home-section">
+        <Courses />
+      </section>
+
+      {/* Lectures Component */}
+      <section className="home-section">
+        <Lectures />
+      </section>
+
+      {/* Podcasts Component */}
+      <section className="home-section">
+        <Podcasts />
+      </section>
+
+      {/* Cart Component */}
+      <section className="home-section">
+        <Cart hideEmptyState={true} hideTitle={true} />
+      </section>
+
+      {/* Favorites Component */}
+      <section className="home-section">
+        <Favorites hideEmptyState={true} hideTitle={true} />
+      </section>
+
+      {/* Profile Component */}
+      <section className="home-section">
+        <Profile hideEmptyState={true} />
+      </section>
+
+      {/* Reservation Component */}
+      <section className="home-section">
+        <Reservation />
+      </section>
+
+      {/* Map Component */}
+      <section className="home-section">
+        <Map />
+      </section>
 
 <section className="cta section">
   <div className="cta-card card fade-in">

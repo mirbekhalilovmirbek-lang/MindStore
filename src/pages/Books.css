@@ -1,5 +1,6 @@
 .books {
   width: 100%;
+  margin-top: 1.5rem;
 }
 
 .books-controls {
@@ -44,15 +45,17 @@ body:not(.dark-mode) .filter-btn {
   border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* Removed hover effects */
-.filter-btn:hover,
 .filter-btn.active {
-  /* background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  border-color: transparent; */
+  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  border: 1px solid transparent;
 }
 
 .books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 2rem;
+  width: 100%;
 }
 
 .book-card {
@@ -72,6 +75,7 @@ body:not(.dark-mode) .filter-btn {
   transform: translateZ(0);
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .book-card::before {
@@ -99,11 +103,6 @@ body:not(.dark-mode) .filter-btn {
   z-index: -1;
 }
 
-/* Removed hover effects */
-.book-card:hover::after {
-  /* opacity: 1; */
-}
-
 .book-cover {
   height: 250px;
   overflow: hidden;
@@ -116,11 +115,6 @@ body:not(.dark-mode) .filter-btn {
   height: 100%;
   object-fit: cover;
   transition: transform 0.3s ease;
-}
-
-/* Removed hover effects */
-.book-cover img:hover {
-  /* transform: scale(1.05); */
 }
 
 .book-content {
@@ -194,6 +188,7 @@ body:not(.dark-mode) .book-description {
 .book-actions {
   display: flex;
   gap: 0.5rem;
+  margin-top: auto;
 }
 
 .book-actions .btn {
@@ -289,11 +284,6 @@ body:not(.dark-mode) .book-description {
   transition: background 0.3s ease;
 }
 
-/* Removed hover effects */
-.preview-close:hover {
-  /* background: rgba(255, 255, 255, 0.1); */
-}
-
 .preview-header {
   padding: 2rem 2rem 1rem;
   text-align: center;
@@ -383,12 +373,16 @@ body:not(.dark-mode) .book-description {
     max-width: 100%;
   }
   
-  .grid-cols-3 {
+  .books-grid {
     grid-template-columns: 1fr;
   }
   
   .book-actions {
     flex-direction: column;
+  }
+  
+  .book-actions .btn {
+    width: 100%;
   }
   
   .preview-body {

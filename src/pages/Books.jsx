@@ -157,7 +157,6 @@ const Books = () => {
                 <div className="book-category">{book.category}</div>
                 <h3 className="book-title">{book.title}</h3>
                 <p className="book-author">{t('courses.by')} {book.author}</p>
-                <p className="book-description">{book.description}</p>
                 
                 <div className="book-meta">
                   <div className="book-rating">

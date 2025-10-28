@@ -162,7 +162,6 @@ const Lectures = () => {
                 <div className="lecture-category">{lecture.category}</div>
                 <h3 className="lecture-title">{lecture.title}</h3>
                 <p className="lecture-speaker">{t('courses.by')} {lecture.speaker}</p>
-                <p className="lecture-description">{lecture.description}</p>
                 
                 <div className="lecture-meta">
                   <div className="lecture-rating">

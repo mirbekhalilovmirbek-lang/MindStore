@@ -459,7 +459,7 @@ const CourseDetail = () => {
             
             <div className="course-description">
               <h2>{i18n.language === 'ru' ? 'Описание курса' : 'Course Description'}</h2>
-              <p>{course.description}</p>
+              {/* Removed course description text declaration as requested */}
             </div>
             
             <div className="course-highlights">

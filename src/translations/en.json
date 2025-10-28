@@ -1,6 +1,6 @@
 {
   "header": {
-    "logo": "LearnIT",
+    "logo": "MindStore",
     "home": "Home",
     "courses": "Courses",
     "books": "Books",
@@ -28,7 +28,7 @@
     "subtitle": "Discover premium digital learning products from industry experts",
     "exploreCourses": "Explore Courses",
     "installmentPlans": "Installment Plans",
-    "whyChoose": "Why Choose LearnIT?",
+    "whyChoose": "Why Choose MindStore?",
     "expertInstructors": "Expert Instructors",
     "expertInstructorsDesc": "Learn from industry leaders and professionals with real-world experience",
     "flexiblePayments": "Flexible Payments",
@@ -43,7 +43,7 @@
     "languages": "Languages",
     "languagesDesc": "Learn new languages with immersive techniques",
     "readyToLearn": "Ready to Start Learning?",
-    "joinStudents": "Join thousands of students who have transformed their careers with LearnIT",
+    "joinStudents": "Join thousands of students who have transformed their careers with MindStore",
     "getStarted": "Get Started Today",
     "month": "month"
   },
@@ -228,13 +228,13 @@
     "password": "Password",
     "confirmPassword": "Confirm Password",
     "signUp": "Sign Up",
-    "signUpWithGoogle": "Sign up with Google",
     "signingUp": "Signing up...",
     "passwordsDontMatch": "Passwords don't match",
     "passwordTooShort": "Password must be at least 6 characters",
     "registrationFailed": "Registration failed. Please try again.",
     "alreadyHaveAccount": "Already have an account?",
     "signIn": "Sign In",
+    "signUpWithGoogle": "Sign up with Google",
     "or": "or",
     "chooseAccount": "Choose an account",
     "addAccount": "Add another account"
@@ -248,14 +248,15 @@
     "invalidCredentials": "Invalid email or password",
     "dontHaveAccount": "Don't have an account?",
     "signUp": "Sign Up",
-    "welcome": "Welcome back to LearnIT",
-    "or": "or",
+    "welcome": "Welcome back to MindStore",
     "signInWithGoogle": "Sign in with Google",
+    "or": "or",
     "chooseAccount": "Choose an account",
     "addAccount": "Add another account",
     "enterPassword": "Enter password",
     "rememberMe": "Remember me",
-    "forgotPassword": "Forgot password?"
+    "forgotPassword": "Forgot password?",
+    "addAccount": "Add another account"
   },
   "admin": {
     "title": "Admin Panel",
@@ -273,7 +274,7 @@
     "enterAdminEmail": "Enter email for new admin"
   },
   "footer": {
-    "description": "LearnIT is your premier destination for premium digital learning products from industry experts.",
+    "description": "MindStore is your premier destination for premium digital learning products from industry experts.",
     "quickLinks": "Quick Links",
     "support": "Support",
     "about": "About Us",
@@ -283,7 +284,7 @@
     "privacy": "Privacy Policy",
     "email": "Email",
     "phone": "Phone",
-    "copyright": "© {{year}} LearnIT. All rights reserved."
+    "copyright": "© {{year}} MindStore. All rights reserved."
   },
   "coursesData": {
     "course1": {

@@ -33,3 +33,4 @@ Thumbs.db
 firestore.indexes.json
 firestore.rules
 storage.rules
+node_modules

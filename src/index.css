@@ -55,7 +55,6 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  padding-top: 0; /* Reset padding as it's handled in App.css */
 }
 
 /* Global transition for theme switching */

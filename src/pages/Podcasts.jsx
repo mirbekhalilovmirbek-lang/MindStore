@@ -163,7 +163,6 @@ const Podcasts = () => {
                 <div className="podcast-category">{podcast.category}</div>
                 <h3 className="podcast-title">{podcast.title}</h3>
                 <p className="podcast-host">{t('courses.by')} {podcast.host}</p>
-                <p className="podcast-description">{podcast.description}</p>
                 
                 <div className="podcast-meta">
                   <div className="podcast-rating">

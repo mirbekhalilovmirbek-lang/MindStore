@@ -48,10 +48,6 @@ const Header = () => {
   }, [isMenuOpen]);
 
   useEffect(() => {
-    setUpdateKey(prev => prev + 1);
-  }, [favoritesCount, cartCount]);
-
-  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
@@ -82,16 +78,16 @@ const Header = () => {
   );
 
   return (
-    <header key={updateKey} className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <div className="header-content">
         <div className="logo">
           <Link to="/">
             <img 
-              src="https://cdn-icons-png.flaticon.com/512/9134/9134388.png" 
-              alt="" 
+              src="https://cdn-icons-png.flaticon.com/256/9956/9956343.png" 
+              alt="MindStore Logo" 
               className="logo-image"
             />
-            <span className="logo-text">{t('LearnIT')}</span>
+            <span className="logo-text">{t('header.logo')}</span>
           </Link>
         </div>
         
@@ -111,13 +107,13 @@ const Header = () => {
         <div className="header-actions">
           <Link to="/favorites" className="favorites-link">
             <span className="favorites-icon">
-              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png" alt="Favorites" style={{ width: '20px', height: '20px' }} />
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Heart_coraz%C3%B3n.svg/1200px-Heart_coraz%C3%B3n.svg.png " alt="Favorites" style={{ width: '20px', height: '20px', color: '#e50914' }} />
             </span>
             {favoritesCount > 0 && <span className="favorites-count">{favoritesCount}</span>}
           </Link>
           <Link to="/cart" className="cart-link">
             <span className="cart-icon">
-              <img src="https://cdn-icons-png.flaticon.com/512/3081/3081986.png" alt="Cart" style={{ width: '20px', height: '20px' }} />
+              <img src="https://cdn-icons-png.flaticon.com/512/3081/3081986.png " alt="Cart" style={{ width: '20px', height: '20px', color: '#1a1a1a' }} />
             </span>
             {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
           </Link>
@@ -165,7 +161,7 @@ const Header = () => {
             <Link to="/" onClick={() => setIsMenuOpen(false)}>
               <img 
                 src="https://cdn-icons-png.flaticon.com/256/9956/9956343.png" 
-                alt="" 
+                alt="MindStore Logo" 
                 className="logo-image"
               />
               <span className="logo-text">{t('header.logo')}</span>
@@ -185,6 +181,7 @@ const Header = () => {
           <li><Link to="/books" onClick={() => setIsMenuOpen(false)}>{t('header.books')}</Link></li>
           <li><Link to="/lectures" onClick={() => setIsMenuOpen(false)}>{t('header.lectures')}</Link></li>
           <li><Link to="/podcasts" onClick={() => setIsMenuOpen(false)}>{t('header.podcasts')}</Link></li>
+          <li><Link to="/cart" onClick={() => setIsMenuOpen(false)}>{t('cart.title')}</Link></li>
           {/* <li><Link to="/installment" onClick={() => setIsMenuOpen(false)}>{t('header.installment')}</Link></li> */}
           <li><Link to="/reservation" onClick={() => setIsMenuOpen(false)}>{t('header.reserve')}</Link></li>
           <li><Link to="/map" onClick={() => setIsMenuOpen(false)}>{t('header.locations')}</Link></li>

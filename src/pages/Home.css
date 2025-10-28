@@ -64,6 +64,7 @@
   position: relative;
   overflow: hidden;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .btn-primary::after, .btn-secondary::after {

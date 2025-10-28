@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useFavorites } from '../contexts/FavoritesContext';
 import './Favorites.css';
 
-const Favorites = () => {
+const Favorites = ({ hideEmptyState = false, hideTitle = false }) => {
   const { favorites, removeFromFavorites, favoritesCount } = useFavorites();
   const { t } = useTranslation();
 
@@ -19,14 +19,16 @@ const Favorites = () => {
   return (
     <div className="favorites">
       <section className="section">
-        <h1 className="section-title">❤️ {t('favorites.title')}</h1>
+        {!hideTitle && <h1 className="section-title">❤️ {t('favorites.title')}</h1>}
         
         {favorites.length === 0 ? (
+          hideEmptyState ? null : (
           <div className="empty-favorites">
             <h2>{t('favorites.empty')}</h2>
             <p>{t('favorites.startAdding')}</p>
             <Link to="/courses" className="btn btn-primary">{t('favorites.browse')}</Link>
           </div>
+          )
         ) : (
           <div className="favorites-content">
             <div className="favorites-grid grid grid-cols-3">

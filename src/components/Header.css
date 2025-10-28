@@ -1,25 +1,17 @@
 /* Header styles for MindStore */
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative; /* fixed -> relative, экран менен жылайт */
   background: var(--header-bg);
   border-bottom: 1px solid var(--card-border);
   padding: 1rem 0;
-  z-index: 1000;
+  width: 100%;
+  z-index: 10;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  height: 70px;
-  display: flex;
-  align-items: center;
 }
 
 .header.scrolled {
   padding: 0.5rem 0;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  height: 60px;
 }
 
 .header-content {
@@ -29,7 +21,6 @@
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 2rem;
-  width: 100%;
 }
 
 .logo {
@@ -54,10 +45,6 @@
   font-size: 1.5rem;
   font-weight: 700;
   color: #6a11cb;
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .nav-list {
@@ -72,11 +59,6 @@
   padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-.nav-list a:hover {
-  /* Removed hover effects */
 }
 
 .header-actions {
@@ -85,7 +67,12 @@
   align-items: center;
 }
 
-.favorites-link, .cart-link, .profile-link, .login-link, .register-link, .admin-link {
+.favorites-link,
+.cart-link,
+.profile-link,
+.login-link,
+.register-link,
+.admin-link {
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -94,25 +81,17 @@
   transition: all 0.2s ease;
 }
 
-/* Keep hover effects on cart link as per user preference */
-.cart-link:hover {
-  transform: scale(1.1);
-  color: #6a11cb;
-}
-
-.favorites-link:hover, 
-.profile-link:hover,
-.login-link:hover,
-.register-link:hover,
-.admin-link:hover {
-  /* Removed hover effects */
-}
-
-.favorites-icon, .cart-icon, .profile-icon, .login-icon, .register-icon, .admin-icon {
+.favorites-icon,
+.cart-icon,
+.profile-icon,
+.login-icon,
+.register-icon,
+.admin-icon {
   font-size: 1.3rem;
 }
 
-.favorites-count, .cart-count {
+.favorites-count,
+.cart-count {
   position: absolute;
   top: -5px;
   right: -5px;
@@ -143,10 +122,6 @@
   color: var(--text-color);
 }
 
-.theme-toggle:hover {
-  /* Removed hover effects */
-}
-
 .language-selector-container {
   display: flex;
   align-items: center;
@@ -171,25 +146,14 @@
   margin-left: 1rem;
 }
 
-.menu-toggle:hover {
-  /* Removed hover effects as per user preference */
-}
-
-/* Remove complex animations and floating shapes */
-.header-animation {
-  display: none;
-}
-
 /* Mobile menu styles */
 .mobile-menu {
-  position: fixed;
+  position: fixed; /* мобилдик меню экрандын үстүндө ачылышы үчүн fixed */
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background: var(--header-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -231,11 +195,6 @@
   padding: 1rem;
   border-radius: 8px;
   transition: all 0.2s ease;
-  font-weight: 500;
-}
-
-.mobile-nav-list a:hover {
-  /* Removed hover effects */
 }
 
 .mobile-header-actions {
@@ -279,7 +238,7 @@
   .menu-toggle {
     display: none !important;
   }
-  
+
   .nav-list {
     display: flex;
   }
@@ -290,7 +249,7 @@
   .nav-list {
     display: none;
   }
-  
+
   .menu-toggle {
     display: flex;
   }
@@ -301,7 +260,7 @@
   .nav-list {
     display: flex;
   }
-  
+
   .menu-toggle {
     display: none;
   }
@@ -311,21 +270,30 @@
   .header-content {
     padding: 0 1rem;
   }
-  
+
   .logo-text {
     font-size: 1.3rem;
   }
-  
+
   .header-actions {
     gap: 0.8rem;
   }
-  
-  .header {
-    height: 60px;
-    padding: 0.5rem 0;
+}
+
+/* Responsive behavior to hide favorites, cart, theme toggle, and language selector on smaller screens */
+@media (max-width: 576px) {
+  .favorites-link,
+  .cart-link,
+  .theme-toggle,
+  .language-selector-container {
+    display: none;
   }
-  
-  .header.scrolled {
-    height: 50px;
+
+  /* Also hide these elements in the mobile menu on very small screens */
+  .mobile-header-actions .favorites-link,
+  .mobile-header-actions .cart-link,
+  .mobile-header-actions .theme-toggle,
+  .mobile-header-actions .language-selector-container {
+    display: none;
   }
 }

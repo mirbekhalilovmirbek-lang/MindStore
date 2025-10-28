@@ -4,7 +4,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useTranslation } from 'react-i18next';
 import './Profile.css';
 
-const Profile = () => {
+const Profile = ({ hideEmptyState = false }) => {
   const { currentUser, logout } = useAuth();
   const navigate = useNavigate();
   const { t } = useTranslation();
@@ -25,7 +25,7 @@ const Profile = () => {
   };
 
   if (!currentUser) {
-    return (
+    return hideEmptyState ? null : (
       <div className="profile-container">
         <div className="profile-card">
           <h2>{t('profile.pleaseLogin')}</h2>

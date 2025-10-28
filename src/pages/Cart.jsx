@@ -6,7 +6,7 @@ import axios from 'axios';
 import { convertUsdToKgs, formatKgsPrice } from '../utils/currency';
 import './Cart.css';
 
-const Cart = () => {
+const Cart = ({ hideEmptyState = false, hideTitle = false }) => {
   const { cartItems, updateQuantity, removeFromCart, subtotal, tax, total, clearCart } = useCart();
   const [isCheckingOut, setIsCheckingOut] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -129,9 +129,10 @@ ${order.items.map((item) => `- ${item.name} x${item.quantity} = ${formatKgsPrice
   return (
     <div className="cart">
       <section className="section">
-        <h1 className="section-title">{t('cart.title')}</h1>
+        {!hideTitle && <h1 className="section-title">{t('cart.title')}</h1>}
         
         {cartItems.length === 0 ? (
+          hideEmptyState ? null : (
           <div className="empty-cart">
             <h2>{t('cart.empty')}</h2>
             <p>{t('cart.startAdding')}</p>
@@ -139,6 +140,7 @@ ${order.items.map((item) => `- ${item.name} x${item.quantity} = ${formatKgsPrice
               <Link to="/courses" className="btn btn-primary no-hover">{t('cart.browseCourses')}</Link>
             </div>
           </div>
+          )
         ) : (
           <div className="cart-content">
             <div className="cart-items">
